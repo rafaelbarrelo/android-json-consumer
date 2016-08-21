@@ -7,7 +7,9 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    android:layout_margin="@dimen/card_margin"
+    android:layout_marginLeft="@dimen/card_margin_LR"
+    android:layout_marginRight="@dimen/card_margin_LR"
+    android:layout_marginTop="@dimen/card_margin_TB"
     card_view:cardCornerRadius="@dimen/cardview_default_radius">
 
 
@@ -15,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="@dimen/card_margin"
+        android:layout_marginLeft="@dimen/card_margin_LR"
         >
 
         <TextView
