@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Json Consumer</string>
-    <string name="password">Password</string>
-    <string name="nome">Nome</string>
-    <string name="id">Id</string>
+    <string name="password">Pwd:</string>
+    <string name="nome">Name:</string>
+    <string name="id">ID:</string>
 
     <string name="data_endpoint">https://s3-sa-east-1.amazonaws.com/pontotel-docs/</string>
+    <string name="erro_carregar">Ops! Ocorreu uma falha ao carregar os dados. Tente novamente mais tarde.</string>
 </resources>

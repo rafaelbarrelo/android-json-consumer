@@ -3,7 +3,9 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="card_margin_LR">16dp</dimen>
+    <dimen name="text_margin_right">5dp</dimen>
+
+    <dimen name="card_margin_LR">8dp</dimen>
     <dimen name="card_margin_TB">8dp</dimen>
     <dimen name="card_item_padding">8dp</dimen>
 </resources>

@@ -1,6 +1,8 @@
 package br.com.rafaelbarrelo.readonlinejson;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private UsuarioAdapter adapter;
     private RecyclerView recyclerView;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +31,25 @@ public class MainActivity extends AppCompatActivity {
         this.carregaDados();
     }
 
+
     private void inicializaRecycler() {
         this.recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         this.recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         this.adapter = new UsuarioAdapter();
         this.recyclerView.setAdapter(this.adapter);
+
+        this.swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
+        this.swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorPrimary),
+                                                getResources().getColor(R.color.colorAccent),
+                                                getResources().getColor(R.color.colorPrimaryDark));
+
+        this.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                carregaDados();
+            }
+        });
     }
 
     private void carregaDados() {
@@ -44,11 +60,13 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, response.body().getData().toString());
                 adapter.setUsuarios(response.body().getData());
                 adapter.notifyDataSetChanged();
+                swipeRefreshLayout.setRefreshing(false);
             }
 
             @Override
             public void onFailure(Call<DataJsonObject> call, Throwable t) {
-
+                swipeRefreshLayout.setRefreshing(false);
+                Snackbar.make(recyclerView, getString(R.string.erro_carregar), Snackbar.LENGTH_LONG).show();
             }
         });
     }
