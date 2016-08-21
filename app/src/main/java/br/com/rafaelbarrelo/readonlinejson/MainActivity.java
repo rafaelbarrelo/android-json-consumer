@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "RBARRELO_MAIN";
 
+    private DataAPIHelper helper;
     private UsuarioAdapter adapter;
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.helper = new DataAPIHelper(this);
         this.inicializaRecycler();
         this.carregaDados();
     }
@@ -53,8 +55,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void carregaDados() {
-        DataAPIHelper helper = new DataAPIHelper(this);
-        helper.getDataJsonObject().enqueue(new Callback<DataJsonObject>() {
+        this.helper.getDataJsonObject().enqueue(new Callback<DataJsonObject>() {
             @Override
             public void onResponse(Call<DataJsonObject> call, Response<DataJsonObject> response) {
                 Log.d(TAG, response.body().getData().toString());
