@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">ReadOnlineJson</string>
+    <string name="app_name">Json Consumer</string>
+    <string name="password">Password</string>
+    <string name="nome">Nome</string>
+    <string name="id">Id</string>
+
+    <string name="data_endpoint">https://s3-sa-east-1.amazonaws.com/pontotel-docs/</string>
 </resources>
