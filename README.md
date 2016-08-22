@@ -1,7 +1,7 @@
 # Android-json-consumer
 Aplicativo Android para ler dados de um json (online) e exibir em uma lista
 
-![image](prints/print.png)
+![image](print/print.png)
 
 ### Bibliotecas utilizadas
 ##### Nativas
